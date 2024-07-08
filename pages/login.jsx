@@ -34,15 +34,25 @@ const Login = () => {
                 Please enter your phone number to continue
               </p>
               <input
+                type="text"
+                placeholder="Enter your name..."
+                className="outline-1 my-3 border border-black px-3 py-1 w-96 h-10"
+              />
+              <input
                 type="email"
                 placeholder="Enter your email..."
+                className="outline-1 my-3 border border-black px-3 py-1 w-96 h-10"
+              />
+              <input
+                type="password"
+                placeholder="Password ..."
                 className="outline-1 my-3 border border-black px-3 py-1 w-96 h-10"
               />
               <button
                 className="w-96 h-14 text-lg font-bold bg-red-400 hover:cursor-pointer hover:bg-red-700 text-white my-5 rounded-lg"
                 type="submit"
               >
-                Verify Email
+                Sign Up
               </button>
               <p className="my-1 text-xl ">
                 <span>Already have an account ?</span>
