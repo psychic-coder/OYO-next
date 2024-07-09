@@ -27,4 +27,4 @@ const SingleHotel = () => {
   )
 }
 
-export default SingleHotel
+export default SingleHotel;
