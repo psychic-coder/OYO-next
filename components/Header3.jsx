@@ -30,7 +30,7 @@ const Header3 = () => {
             type="submit"
             className="h-16 px-3 py-2 col-span-1 bg-green-500 text-white hover:cursor-pointer hover:bg-green-600 text-xl"
           >
-            <Link href={"/hotels"}>Search</Link>
+            <Link href={"/hotels?city=Mumbai"}>Search</Link>
           </button>
         </div>
         <div className="flex mx-20 my-5 font-bold">
