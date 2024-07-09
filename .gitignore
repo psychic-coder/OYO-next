@@ -1,36 +1,29 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
+# Node modules
 /node_modules
-/.pnp
-.pnp.js
-.yarn/install-state.gz
 
-# testing
-/coverage
+# Logs
+*.log
 
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
+# Runtime data
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# local env files
-.env*.local
+# Dependency directories
+/jspm_packages/
+/bower_components/
 
-# vercel
-.vercel
+# Optionally, you can also ignore your local development environment configuration files
+.env
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# Build files
+/build/
+/dist/
+
+# Editor-specific files
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# IDE-specific files
+*.ide
