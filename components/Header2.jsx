@@ -33,7 +33,7 @@ const Header2 = () => {
     ]
   return (
     <div>
-        <div className="flex px- bg-gray-100 justify-between ">
+        <div className="flex px- bg-gray-100 justify-between px-2 ">
         {
             List.map(({id,name})=>{
                 return (
