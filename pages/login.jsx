@@ -19,6 +19,7 @@ const Login = () => {
       email,
       password,
     });
+    //in the below we're setting the token
     if (res?.data) {
       Cookies.set("user", res.data.token, { expires: 7 });
       alert(res.data.msg);

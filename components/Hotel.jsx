@@ -49,7 +49,7 @@ const Hotel = ({ e }) => {
                             className="w-4 h-4 rounded-full"
                           />
                         </span>
-                        <span className="ml-5 text-md">{ele.name}</span>
+                        <span className="ml-5 text-sm">{ele.name}</span>
                       </li>
                     );
                   })

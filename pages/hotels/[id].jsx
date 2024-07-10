@@ -1,30 +1,104 @@
-import Image from 'next/image'
-import React from 'react'
+"use client";
+import Head from "next/head";
+import Image from "next/image";
+import Cookies from "js-cookie";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
-const SingleHotel = () => {
+const SingleHotel = ({ hotel }) => {
+  const [auth, setAuth] = useState(false);
+
+  useEffect(() => {
+    const cookie = Cookies.get("user");
+    if (cookie) {
+      setAuth(true);
+      return;
+    }
+    setAuth(false);
+  }, []);
+
   return (
-    <div className='w-7/12 mx-auto my-10' >
+    <>
+      <Head>
+        <title>{hotel?.name}</title>
+      </Head>
+      <div className="w-7/12 mx-auto my-10 ">
         <Image
-        
-        src={"https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"}
-        width={200} height={200} className='w-full h-largeBox my-5 '
+          src={hotel?.banner}
+          alt="hotel"
+          width={2000}
+          height={2000}
+          className=" w-full h-large-box my-5"
         />
-        <div className=''>
-            <h3 className='text-3xl font-bold '>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, magni!</h3>
-            <p className='text-xl my-5 text-justify'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid temporibus amet fugit voluptate natus corrupti quasi delectus distinctio assumenda ipsum esse, unde reiciendis rerum corporis soluta! Vero excepturi, nisi nostrum perspiciatis autem ullam unde iusto, ipsa rerum ab distinctio provident eligendi, quasi soluta dolorum quo earum dolor harum dicta ut!</p>
-            <button className="w-60 h-14 rounded-lg bg-blue-400 text-lg  "> ₹4500</button>
-            <p className='text-2xl font-bold my-5'>Facilities:</p>
-            <ul className='flex text-xl justify-between'>
-              <li>Swimming pool</li>
-              <li>Dogs</li>
-              <li>Laundry</li>
-              <li>Garden</li>
-              <li>Cricket</li>
-            </ul>
-            <button className="w-60 h-14 rounded-lg bg-red-400 text-lg  my-5">Book Now</button>
+        <div className=" ">
+          <h3 className=" text-3xl font-bold">{hotel?.name}</h3>
+          <p className=" text-xl my-5 text-justify">{hotel?.description}</p>
+          <button className=" w-60 h-14 rounded-lg bg-blue-400 text-lg">
+            Price : &#8377; {hotel?.price}
+          </button>
+          <p className=" text-3xl font-bold my-5">Facilities : </p>
+          <ul className=" flex text-xl justify-between">
+            {hotel
+              ? hotel.facilities?.map((ele) => {
+                  return (
+                    <li
+                      key={ele.name}
+                      className=" mr-10 mb-3 flex items-center"
+                    >
+                      <span>
+                        <Image
+                          src={ele.img}
+                          width={200}
+                          height={200}
+                          className="w-8 h-8 rounded-full"
+                        />
+                      </span>
+                      <span className="ml-5">{ele.name}</span>
+                    </li>
+                  );
+                })
+              : ""}
+          </ul>
+          {auth ? (
+            <Link href={`/payment/${hotel?._id}`}>
+              <button className=" w-60 h-14 rounded-lg bg-red-400 my-5 text-lg">
+                Book Now
+              </button>
+            </Link>
+          ) : (
+            <span className=" text-2xl">
+              Please{" "}
+              <Link href={"/login"} className=" text-red-500">
+                Log in
+              </Link>{" "}
+              to get new Offers !
+            </span>
+          )}
         </div>
-    </div>
-  )
-}
+      </div>
+    </>
+  );
+};
 
+//ctx is the parameter we receiving
+export async function getServerSideProps(ctx) {
+  const { id } = ctx.query;
+
+  try {
+    const res = await fetch(`${process.env.BASE_URL}/api/hotels/${id}`);
+
+    const data = await res.json();
+
+    return {
+      props: {
+        hotel: data.hotel,
+      },
+    };
+  } catch (error) {
+    console.error('Error fetching hotel data:', error);
+    return {
+      notFound: true,
+    };
+  }
+}
 export default SingleHotel;
