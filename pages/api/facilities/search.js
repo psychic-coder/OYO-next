@@ -1,5 +1,5 @@
 import connectDB from "@/db";
-import Hotel from "@/models/hotel-model";
+import Hotel from "@/models/hotelModel";
 
 export default async function handler(req, res) {
   if (req.method == "GET") {

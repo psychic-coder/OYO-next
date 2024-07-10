@@ -2,7 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/hotels/[id]": "pages/hotels/[id].js",
+  "/api/facilities/range": "pages/api/facilities/range.js",
   "/hotels": "pages/hotels.js",
-  "/login": "pages/login.js"
+  "/hotels/[id]": "pages/hotels/[id].js"
 }
