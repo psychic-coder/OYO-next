@@ -11,10 +11,10 @@ const Hotels = ({ hotels }) => {
   const [checkedList, setCheckedList] = useState([]);
 
   const handleCheckList = async () => {
-    const { data } = await axios.get(`/api/facilities/search?val=${checkedList}`);
-    if (data?.hotels) {
-      setList(data.hotels);
-    }
+    // const { data } = await axios.get(`/api/facilities/search?val=${checkedList}`);
+    // if (data?.hotels) {
+    //   setList(data.hotels);
+    // }
   };
 
   useEffect(()=>{

@@ -18,7 +18,7 @@ const Home = () => {
       <Header2 />
       <Header3 />
       <div className="mx-20">
-        <div className=" my-14">
+        {/* <div className=" my-14">
           <Image
             src={"/banner1.avif"}
             alt="banner1"
@@ -35,7 +35,7 @@ const Home = () => {
             height={200}
             className=" h-40 w-full"
           />
-        </div>
+        </div> */}
         <Header4 />
       </div>
       <Footer />

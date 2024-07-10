@@ -7,12 +7,12 @@ module.exports = {
   ],
   theme: {
     extend: {
-       backgroundImage:{
-        'login-background':'url("/background.avif")'
-       },
-       height:{
-        'largeBox':'400px'
-       }
+      backgroundImage:{
+        "login-background":'url("/background.avif")'
+      },
+      height:{
+        'large-box':'400px'
+      }
     },
   },
   plugins: [],
