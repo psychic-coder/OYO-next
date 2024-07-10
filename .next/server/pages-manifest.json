@@ -3,11 +3,10 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/hotels": "pages/hotels.js",
-  "/": "pages/index.js",
-  "/hotels/[id]": "pages/hotels/[id].js",
   "/api/hotels": "pages/api/hotels.js",
-  "/payment/[id]": "pages/payment/[id].js",
   "/api/facilities": "pages/api/facilities.js",
-  "/api/facilities/search": "pages/api/facilities/search.js",
-  "/api/hotels/[id]": "pages/api/hotels/[id].js"
+  "/payment/[id]": "pages/payment/[id].js",
+  "/api/hotels/[id]": "pages/api/hotels/[id].js",
+  "/hotels/[id]": "pages/hotels/[id].js",
+  "/api/facilities/search": "pages/api/facilities/search.js"
 }
